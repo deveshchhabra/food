@@ -1,0 +1,19 @@
+
+# Nameste food 
+/**
+        Header
+            -Logo
+            -Nav Item(Right side)
+            -Cart
+        Body
+            -Search baar
+            -Restaurant list
+            -Restaurant Card
+                      -Image
+                      -Name
+                      -Rating
+                      -Cusines
+        Footer
+            -link
+//  */
+
