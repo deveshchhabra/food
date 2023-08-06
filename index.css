@@ -20,26 +20,31 @@ padding-left: 100px;
 }
 
 .logo{
-    width: 60px;
+    width: 130px;
 }
 #title{
     align-items: center;
 }
-
 .card {
     border: solid #eee7e7;
     width: 200px;
     margin: 10px;
     padding: 10px;
+    /* border: solid #727171; */
 }
-
 .card > img {
-    border: solid #332f2f;
+    border: solid hsl(0, 0%, 56%);
     width: 100%;
 }
-
 .restaurant-list {
     display: flex;
     flex-wrap: wrap;
 }
-
+.shimmer-card{
+    width:200px;
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(241, 232, 232);
+    margin: 20px;
+}

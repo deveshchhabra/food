@@ -1,6 +1,7 @@
-import { title } from "process";
 import { IMG_CDN_URL } from "../contants";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import  Logo from "../assets/img/images.jpg"
+import {Link} from "react-router-dom";
 const loggedInUser=()=>{
     //API CALL tO MAKE AUTHENCATION 
     return false;
@@ -9,25 +10,30 @@ const Title = ()=>(
     <a href="/">
         <img className="logo" 
         alt="logo"
-        src={IMG_CDN_URL}></img>
-        
-    
+        src={Logo}></img>        
     </a>
 );
 const Header = () =>{
     const [isLoggedIn,setIsLoggedIN]=useState(true);//create to state 
+
+    useEffect(()=>{
+    console.log("useEffect");
+    },[])
+    console.log("render");
         
     return( 
         <div className="header">
          <Title />    
         <div className="nav-item"> 
         <ul>
-            <li>Home</li>
-            <li>About</li>            
-            <li>Contact</li>
+          <li>
+            <Link to ="/">
+            Home
+            </Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/Contact">Contact</Link></li>
             <li>Cart</li>
-       <li>
-
+        <li>
         { isLoggedIn ? (
             <button onClick={()=>setIsLoggedIN(false)}>Logout</button>)
             :(
