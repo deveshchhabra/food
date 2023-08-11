@@ -4,14 +4,17 @@ import { restaurantList } from "../contants";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer"; 
 import { Link } from "react-router-dom";
-function filterdata (searchText,restaurants){
-  
-  const filterData = restaurants.filter((restaurant) =>-
-  restaurant?.info?.name?.toLowerCase().includes(searchText?.toLowerCase())
-  );
-  return filterData;
-  
-}  
+import { filterdata } from "../utilis/helper";
+import useOnline from "../utilis/useOnline";
+
+
+
+
+
+
+
+
+
 const Body = () =>{
   const [allRestaurants,setAllRestaturants] =useState([]);//--->COPY OF ALL RESTAURANT
   const [filteredRestaurants,setFilteredRestaurants] =useState([]);
@@ -41,6 +44,11 @@ const Body = () =>{
     // if(!allRestaurants) return null;
     // if(filteredRestaurants?.length===0)
     // return <h1>No restaurnta match yours filrer</h1>
+    const isOnline =useOnline();
+    
+    if(!isOnline){
+      return <h1>🔴🔴🔴🔴🔴Offline,please check your internet connection</h1>
+    }
     
     return allRestaurants?.length ===0 ?  <Shimmer/>  :(
         <>
