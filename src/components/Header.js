@@ -9,7 +9,7 @@ const loggedInUser=()=>{
 }
 const Title = ()=>(
     <a href="/">
-        <img className="logo" 
+        <img className="h-28 px-2" 
         alt="logo"
         src={Logo}></img>        
     </a>
@@ -23,19 +23,19 @@ const Header = () =>{
     console.log("render");
         
     return( 
-        <div className="header">
+        <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-blue-50 md:bg-yellow-50">
          <Title />    
         <div className="nav-item"> 
-        <ul>
-          <li>
+        <ul className="flex py-9 ">
+          <li className="px-3">
             <Link to ="/">
             Home
             </Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/Contact">Contact</Link></li>
-            <li><Link to="/instamart">Instamart</Link></li>
+            <li className="px-5"><Link to="/about">About</Link></li>
+            <li className="px-5"><Link to="/Contact">Contact</Link></li>
+            <li className="px-5"><Link to="/instamart">Instamart</Link></li>
 
-            <li>Cart</li>
+            <li className="px-5">Cart</li>
   
     
             
