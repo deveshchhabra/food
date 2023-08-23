@@ -1,18 +1,25 @@
 // import {  } from "..contants/";
 import RestaurantCard from "../restaurantcard";
 import { restaurantList } from "../contants";
-import { useState,useEffect,useContext } from "react";
+import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer"; 
 import { Link } from "react-router-dom";
 import { filterdata } from "../utilis/helper";
 import useOnline from "../utilis/useOnline";
-// import UserContext from "../utilis/UserContext";
-import UserContext from "../utilis/UserContext"; //-->userContext
+
+
+
+
+
+
+
+
+
 const Body = () =>{
   const [allRestaurants,setAllRestaturants] =useState([]);//--->COPY OF ALL RESTAURANT
   const [filteredRestaurants,setFilteredRestaurants] =useState([]);
   const [searchText,setSearchText] =useState("");
-  const {user,setUser}=useContext(UserContext);
+  
   
   //callback ---> it will called whenever my useeffect call 
   useEffect(()=>{
@@ -47,10 +54,14 @@ const Body = () =>{
         <>
         <div className="search-container p-5 bg-white-100 my-3">
             <input 
-            type="text" className="focus:bg-green-200 p-2 m-2"
-            placeholder="search" value={searchText}
+            type="text"
+            className="focus:bg-green-200 p-2 m-2"
+            placeholder="search" 
+            value={searchText}
             onChange={(e)=>{
-              setSearchText(e.target.value);}}            />         
+              setSearchText(e.target.value);
+            }}            
+            />         
             <button 
             className="p-2 m-2 bg-purple-800 hover:bg-yellow-200 text-white rounded-md"
             onClick = {()=>{
@@ -60,25 +71,6 @@ const Body = () =>{
             }}>
               Search
               </button>
-              <input value={user.name} onChange={
-                e=>setUser({
-
-                  ...user,
-                name:e.target.value,
-
-
-              })
-              }></input>
-              <input value={user.email} onChange={
-                e=>setUser({
-
-                  ...user,
-                email:e.target.value,
-
-
-              })
-              }></input>
-
         </div>
         <div className=" flex flex-wrap p-2 m-2">
           {/* write logic for no restraunt found here */}
@@ -89,7 +81,7 @@ const Body = () =>{
          to={"/restaurant/"+  restaurant.info.id}
           key={restaurant.info.id}
           >
-          <RestaurantCard {...restaurant.info }   />
+          <RestaurantCard {...restaurant.info}   />
           </Link>
           
           
